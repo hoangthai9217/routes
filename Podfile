@@ -6,7 +6,9 @@ target 'GapoRoutes' do
   use_frameworks!
 
   # Pods for GapoRoutes
-
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  
   target 'GapoRoutesTests' do
     inherit! :search_paths
     # Pods for testing

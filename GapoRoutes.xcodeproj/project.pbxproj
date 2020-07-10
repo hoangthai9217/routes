@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		FB6FC45624B802BA0055EEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45524B802BA0055EEF5 /* Assets.xcassets */; };
 		FB6FC45924B802BA0055EEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */; };
 		FB6FC46424B802BB0055EEF5 /* GapoRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46324B802BB0055EEF5 /* GapoRoutesTests.swift */; };
+		FB6FC47024B804790055EEF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46F24B804790055EEF5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		FB6FC45F24B802BB0055EEF5 /* GapoRoutesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GapoRoutesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6FC46324B802BB0055EEF5 /* GapoRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapoRoutesTests.swift; sourceTree = "<group>"; };
 		FB6FC46524B802BB0055EEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB6FC46F24B804790055EEF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,6 @@
 				499D244A522CC52155F1FA26 /* Pods-GapoRoutesTests.debug.xcconfig */,
 				72EA87A3ABB2093A79103425 /* Pods-GapoRoutesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,6 +113,7 @@
 		FB6FC44B24B802B90055EEF5 /* GapoRoutes */ = {
 			isa = PBXGroup;
 			children = (
+				FB6FC46E24B804670055EEF5 /* Configurations */,
 				FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */,
 				FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */,
 				FB6FC45024B802B90055EEF5 /* ViewController.swift */,
@@ -132,6 +134,14 @@
 			path = GapoRoutesTests;
 			sourceTree = "<group>";
 		};
+		FB6FC46E24B804670055EEF5 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FC46F24B804790055EEF5 /* Constants.swift */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +153,7 @@
 				FB6FC44524B802B90055EEF5 /* Sources */,
 				FB6FC44624B802B90055EEF5 /* Frameworks */,
 				FB6FC44724B802B90055EEF5 /* Resources */,
+				182AEFFA257E1AA7E55155D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,6 +242,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		182AEFFA257E1AA7E55155D6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1A3A89C070AA34B63512393B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +313,7 @@
 				FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */,
 				FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */,
 				FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */,
+				FB6FC47024B804790055EEF5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
