@@ -167,7 +167,7 @@ final class HomeViewController: UIViewController {
     private func drawPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D, mode: TravelMode = .driving) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=\(mode.parameterString)&key=\(StringConstants.GoogleDirectionAPIKey.stringValue)"
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=\(mode.parameterString)&key=\(StringConstants.GoogleAPIKey.stringValue)"
         let url = URL(string: urlString)!
         let task = session.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
             guard let self = self else { return }
