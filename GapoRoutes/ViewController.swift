@@ -9,6 +9,9 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import RxSwift
+import RxCocoa
+import RxRelay
 
 enum TravelMode: String {
     case driving = "driving"
@@ -25,19 +28,68 @@ final class ViewController: UIViewController {
     
     // IBOutlets
     @IBOutlet private weak var mapContainerView: UIView!
-//    @IBOutlet private weak var mapContainerView: UIView!
-//    @IBOutlet private weak var mapContainerView: UIView!
-//    @IBOutlet private weak var mapContainerView: UIView!
-//    @IBOutlet private weak var mapContainerView: UIView!
+    @IBOutlet private weak var drivingButton: UIButton!
+    @IBOutlet private weak var transitButton: UIButton!
+    @IBOutlet private weak var walkingButton: UIButton!
+    @IBOutlet private weak var bicyclingButton: UIButton!
     
+    private var viewModel: HomeViewModel!
+    private let disposeBag = DisposeBag()
     private var mapView: GMSMapView?
     private let startMarker = GMSMarker()
     private let destinationMarker = GMSMarker()
     var a = 1
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        viewModel = HomeViewModel()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
+        bind()
+    }
+    
+    private func bind() {
+        
+        drivingButton.rx.tap
+            .map({ TravelMode.driving })
+            .bind(to: viewModel.mode)
+            .disposed(by: disposeBag)
+        
+        transitButton.rx.tap
+            .map({ TravelMode.transit })
+            .bind(to: viewModel.mode)
+            .disposed(by: disposeBag)
+        
+        walkingButton.rx.tap
+            .map({ TravelMode.walking })
+            .bind(to: viewModel.mode)
+            .disposed(by: disposeBag)
+        
+        bicyclingButton.rx.tap
+            .map({ TravelMode.bicycling })
+            .bind(to: viewModel.mode)
+            .disposed(by: disposeBag)
+        
+        viewModel.mode
+            .asDriver(onErrorJustReturn: TravelMode.driving)
+            .drive(onNext: { [weak self] mode in self?.updateModeUI(mode) })
+            .disposed(by: disposeBag)
+    }
+    
+    private func updateModeUI(_ mode: TravelMode) {
+        drivingButton.tintColor = Colors.disabledButtonColor.uiColor
+        transitButton.tintColor = Colors.disabledButtonColor.uiColor
+        walkingButton.tintColor = Colors.disabledButtonColor.uiColor
+        bicyclingButton.tintColor = Colors.disabledButtonColor.uiColor
+        switch mode {
+        case .bicycling: bicyclingButton.tintColor = Colors.primaryColor.uiColor
+        case .driving:   drivingButton.tintColor = Colors.primaryColor.uiColor
+        case .transit:   transitButton.tintColor = Colors.primaryColor.uiColor
+        case .walking:   walkingButton.tintColor = Colors.primaryColor.uiColor
+        }
     }
     
     private func configureMap() {

@@ -17,6 +17,7 @@
 		FB6FC45924B802BA0055EEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */; };
 		FB6FC46424B802BB0055EEF5 /* GapoRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46324B802BB0055EEF5 /* GapoRoutesTests.swift */; };
 		FB6FC47024B804790055EEF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46F24B804790055EEF5 /* Constants.swift */; };
+		FBCB13CD24B8277900BB6004 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		FB6FC46324B802BB0055EEF5 /* GapoRoutesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapoRoutesTests.swift; sourceTree = "<group>"; };
 		FB6FC46524B802BB0055EEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB6FC46F24B804790055EEF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */,
 				FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */,
 				FB6FC45024B802B90055EEF5 /* ViewController.swift */,
+				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
 				FB6FC45224B802B90055EEF5 /* Main.storyboard */,
 				FB6FC45524B802BA0055EEF5 /* Assets.xcassets */,
 				FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 				FB6FC44624B802B90055EEF5 /* Frameworks */,
 				FB6FC44724B802B90055EEF5 /* Resources */,
 				182AEFFA257E1AA7E55155D6 /* [CP] Copy Pods Resources */,
+				5F0A83629569F8BE0398A018 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,6 +307,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5F0A83629569F8BE0398A018 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -313,6 +334,7 @@
 				FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */,
 				FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */,
 				FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */,
+				FBCB13CD24B8277900BB6004 /* HomeViewModel.swift in Sources */,
 				FB6FC47024B804790055EEF5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,6 +8,9 @@ target 'GapoRoutes' do
   # Pods for GapoRoutes
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxRelay'
   
   target 'GapoRoutesTests' do
     inherit! :search_paths

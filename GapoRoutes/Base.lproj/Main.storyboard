@@ -145,7 +145,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bicyclingButton" destination="yFz-8g-pep" id="N60-sl-Luv"/>
+                        <outlet property="drivingButton" destination="1w5-uU-o9q" id="osf-gm-Ji3"/>
                         <outlet property="mapContainerView" destination="U80-Bc-JLS" id="NUB-7U-JIn"/>
+                        <outlet property="transitButton" destination="6F0-RU-rO3" id="DWw-R6-4vs"/>
+                        <outlet property="walkingButton" destination="tXn-s0-PX3" id="uHR-46-Obj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
