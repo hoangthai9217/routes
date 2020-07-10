@@ -19,6 +19,7 @@
 		FB6FC47024B804790055EEF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46F24B804790055EEF5 /* Constants.swift */; };
 		FBCB13CD24B8277900BB6004 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */; };
 		FBCB13CF24B82DA500BB6004 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13CE24B82DA500BB6004 /* Coordinator.swift */; };
+		FBCB13D224B85DA200BB6004 /* TravelMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13D124B85DA200BB6004 /* TravelMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		FB6FC46F24B804790055EEF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FBCB13CE24B82DA500BB6004 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		FBCB13D124B85DA200BB6004 /* TravelMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +119,17 @@
 		FB6FC44B24B802B90055EEF5 /* GapoRoutes */ = {
 			isa = PBXGroup;
 			children = (
-				FB6FC46E24B804670055EEF5 /* Configurations */,
+				FBCB13D324B860BD00BB6004 /* Coordinators */,
+				FBCB13D024B85D9600BB6004 /* Models */,
 				FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */,
+				FB6FC45524B802BA0055EEF5 /* Assets.xcassets */,
+				FB6FC46E24B804670055EEF5 /* Configurations */,
+				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
+				FB6FC45A24B802BA0055EEF5 /* Info.plist */,
+				FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */,
+				FB6FC45224B802B90055EEF5 /* Main.storyboard */,
 				FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */,
 				FB6FC45024B802B90055EEF5 /* ViewController.swift */,
-				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
-				FBCB13CE24B82DA500BB6004 /* Coordinator.swift */,
-				FB6FC45224B802B90055EEF5 /* Main.storyboard */,
-				FB6FC45524B802BA0055EEF5 /* Assets.xcassets */,
-				FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */,
-				FB6FC45A24B802BA0055EEF5 /* Info.plist */,
 			);
 			path = GapoRoutes;
 			sourceTree = "<group>";
@@ -146,6 +149,22 @@
 				FB6FC46F24B804790055EEF5 /* Constants.swift */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		FBCB13D024B85D9600BB6004 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FBCB13D124B85DA200BB6004 /* TravelMode.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FBCB13D324B860BD00BB6004 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				FBCB13CE24B82DA500BB6004 /* Coordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBCB13D224B85DA200BB6004 /* TravelMode.swift in Sources */,
 				FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */,
 				FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */,
 				FBCB13CF24B82DA500BB6004 /* Coordinator.swift in Sources */,

@@ -13,17 +13,6 @@ import RxSwift
 import RxCocoa
 import RxRelay
 
-enum TravelMode: String {
-    case driving = "driving"
-    case walking = "walking"
-    case bicycling = "bicycling"
-    case transit = "transit"
-    
-    var parameterString: String {
-        return self.rawValue
-    }
-}
-
 final class ViewController: UIViewController {
     
     // IBOutlets
@@ -33,12 +22,14 @@ final class ViewController: UIViewController {
     @IBOutlet private weak var walkingButton: UIButton!
     @IBOutlet private weak var bicyclingButton: UIButton!
     
+    @IBOutlet private weak var startPointTextField: UITextField!
+    @IBOutlet private weak var destinationPointTextField: UITextField!
+    
     private var viewModel: HomeViewModel!
     private let disposeBag = DisposeBag()
     private var mapView: GMSMapView?
     private let startMarker = GMSMarker()
     private let destinationMarker = GMSMarker()
-    var a = 1
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -80,14 +71,12 @@ final class ViewController: UIViewController {
         
         viewModel.startingPoint
             .flatMap(Observable.from(optional: ))
-            .map({ $0.coordinate })
             .asDriver(onErrorDriveWith: Driver.empty())
-            .drive(onNext: { [weak self] place in self?.addStartPointMarker(place)})
+            .drive(onNext: { [weak self] place in self?.addStartPointMarker(place, moveCamera: true)})
             .disposed(by: disposeBag)
         
         viewModel.destinationPoint
             .flatMap(Observable.from(optional: ))
-            .map({ $0.coordinate })
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive(onNext: { [weak self] place in self?.addDestinationPointMarker(place)})
             .disposed(by: disposeBag)
@@ -104,18 +93,25 @@ final class ViewController: UIViewController {
         
     }
     
-    private func addStartPointMarker(_ coordinate: CLLocationCoordinate2D) {
-        startMarker.icon = UIImage(named: "location_pin_blue")!
-        startMarker.position = coordinate
-        startMarker.map = mapView
-        mapView?.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15)
+    private func addMarkerToMap(marker: GMSMarker, place: GMSPlace, moveCamera: Bool = false) {
+        marker.position = place.coordinate
+        marker.title = place.name
+        marker.map = mapView
+        if moveCamera {
+            mapView?.camera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: 15)
+        }
     }
     
-    private func addDestinationPointMarker(_ coordinate: CLLocationCoordinate2D) {
+    private func addStartPointMarker(_ place: GMSPlace, moveCamera: Bool = false) {
+        startMarker.icon = UIImage(named: "location_pin_blue")!
+        addMarkerToMap(marker: startMarker, place: place, moveCamera: moveCamera)
+        startPointTextField.text = place.name
+    }
+    
+    private func addDestinationPointMarker(_ place: GMSPlace, moveCamera: Bool = false) {
         destinationMarker.icon = UIImage(named: "location_pin")!
-        destinationMarker.position = coordinate
-        destinationMarker.map = mapView
-        mapView?.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 15)
+        addMarkerToMap(marker: destinationMarker, place: place, moveCamera: moveCamera)
+        destinationPointTextField.text = place.name
     }
     
     private func updateModeUI(_ mode: TravelMode) {
@@ -159,15 +155,7 @@ final class ViewController: UIViewController {
         return searchPlaceCoordinator!.start()
     }
     
-//    private func search() {
-//        let autocompleteController = GMSAutocompleteViewController()
-//        autocompleteController.delegate = self
-//        let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) | UInt(GMSPlaceField.coordinate.rawValue))!
-//        autocompleteController.placeFields = fields
-//        present(autocompleteController, animated: true, completion: nil)
-//    }
-    
-    func drawPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D, mode: TravelMode = .driving) {
+    private func drawPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D, mode: TravelMode = .driving) {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=\(mode.parameterString)&key=\(StringConstants.GoogleDirectionAPIKey.stringValue)"
@@ -180,16 +168,21 @@ final class ViewController: UIViewController {
                 do {
                     if let json: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
                         DispatchQueue.main.async {
-                            let routes = json["routes"] as? NSArray
-                            let routeOverviewPolyline:NSDictionary = (routes![0] as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
+                            guard let routes = json["routes"] as? NSArray, routes.count > 0 else {
+                                self.showPopUp(title: "Error", message: "Found no routes!")
+                                return
+                            }
+                            let routeOverviewPolyline: NSDictionary = (routes[0] as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
                             let points = routeOverviewPolyline.object(forKey: "points")
-                            let path = GMSPath.init(fromEncodedPath: points! as! String)
-                            let polyline = GMSPolyline.init(path: path)
-                            polyline.strokeWidth = 3
+                            let path = GMSPath(fromEncodedPath: points! as! String)
+                            let polyline = GMSPolyline(path: path)
+                            polyline.strokeWidth = 6
                             let bounds = GMSCoordinateBounds(path: path!)
                             self.mapView?.clear()
-                            self.addStartPointMarker(source)
-                            self.addDestinationPointMarker(destination)
+                            if let startPoint = self.viewModel.startingPoint.value, let destinationPoint = self.viewModel.destinationPoint.value {
+                                self.addStartPointMarker(startPoint)
+                                self.addDestinationPointMarker(destinationPoint)
+                            }
                             self.mapView?.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
                             polyline.map = self.mapView
                         }
@@ -202,47 +195,12 @@ final class ViewController: UIViewController {
         task.resume()
     }
     
+    private func showPopUp(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
 }
-
-//extension ViewController: GMSAutocompleteViewControllerDelegate {
-//
-//    // Handle the user's selection.
-//    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-//
-//        if (a == 1) {
-//            startMarker.icon = UIImage(named: "location_pin_blue")!
-//            startMarker.position = place.coordinate
-//            startMarker.title = place.name
-//            startMarker.map = mapView
-//
-//            mapView?.camera = GMSCameraPosition.camera(withTarget: place.coordinate, zoom: 15)
-//            mapView?.clear()
-//        } else {
-//            destinationMarker.icon = UIImage(named: "location_pin")!
-//            destinationMarker.position = place.coordinate
-//            destinationMarker.title = place.name
-//            destinationMarker.map = mapView
-//
-//            drawPolylineRoute(from: startMarker.position, to: destinationMarker.position)
-//        }
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-//        print("Error: ", error.localizedDescription)
-//    }
-//
-//    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    // Turn the network activity indicator on and off again.
-//    //    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//    //        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-//    //    }
-//    //
-//    //    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-//    //        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-//    //    }
-//
-//}
