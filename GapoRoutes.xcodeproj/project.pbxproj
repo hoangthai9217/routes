@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C6C200F6A1E162A0787A421 /* Pods_GapoRoutesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160B635974EDBC10ED12B051 /* Pods_GapoRoutesTests.framework */; };
+		68430154FC41B3C2CD424F2A /* Pods_GapoRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C163E77B22188C1205E109 /* Pods_GapoRoutes.framework */; };
 		FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */; };
 		FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */; };
 		FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC45024B802B90055EEF5 /* ViewController.swift */; };
@@ -27,6 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1063AFE2D2B73529399B5B20 /* Pods-GapoRoutes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GapoRoutes.release.xcconfig"; path = "Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes.release.xcconfig"; sourceTree = "<group>"; };
+		14C163E77B22188C1205E109 /* Pods_GapoRoutes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GapoRoutes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		160B635974EDBC10ED12B051 /* Pods_GapoRoutesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GapoRoutesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		499D244A522CC52155F1FA26 /* Pods-GapoRoutesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GapoRoutesTests.debug.xcconfig"; path = "Target Support Files/Pods-GapoRoutesTests/Pods-GapoRoutesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		72EA87A3ABB2093A79103425 /* Pods-GapoRoutesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GapoRoutesTests.release.xcconfig"; path = "Target Support Files/Pods-GapoRoutesTests/Pods-GapoRoutesTests.release.xcconfig"; sourceTree = "<group>"; };
+		983C987B368DBC9A624341AF /* Pods-GapoRoutes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GapoRoutes.debug.xcconfig"; path = "Target Support Files/Pods-GapoRoutes/Pods-GapoRoutes.debug.xcconfig"; sourceTree = "<group>"; };
 		FB6FC44924B802B90055EEF5 /* GapoRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GapoRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68430154FC41B3C2CD424F2A /* Pods_GapoRoutes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +61,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C6C200F6A1E162A0787A421 /* Pods_GapoRoutesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1AE97423F5CC54C8B7E953 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				14C163E77B22188C1205E109 /* Pods_GapoRoutes.framework */,
+				160B635974EDBC10ED12B051 /* Pods_GapoRoutesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF48C09C856FC31762415B2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				983C987B368DBC9A624341AF /* Pods-GapoRoutes.debug.xcconfig */,
+				1063AFE2D2B73529399B5B20 /* Pods-GapoRoutes.release.xcconfig */,
+				499D244A522CC52155F1FA26 /* Pods-GapoRoutesTests.debug.xcconfig */,
+				72EA87A3ABB2093A79103425 /* Pods-GapoRoutesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB6FC44024B802B90055EEF5 = {
 			isa = PBXGroup;
 			children = (
 				FB6FC44B24B802B90055EEF5 /* GapoRoutes */,
 				FB6FC46224B802BB0055EEF5 /* GapoRoutesTests */,
 				FB6FC44A24B802B90055EEF5 /* Products */,
+				DF48C09C856FC31762415B2A /* Pods */,
+				6D1AE97423F5CC54C8B7E953 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB6FC46824B802BB0055EEF5 /* Build configuration list for PBXNativeTarget "GapoRoutes" */;
 			buildPhases = (
+				329F46B19F1D9C9CA5A4BEF2 /* [CP] Check Pods Manifest.lock */,
 				FB6FC44524B802B90055EEF5 /* Sources */,
 				FB6FC44624B802B90055EEF5 /* Frameworks */,
 				FB6FC44724B802B90055EEF5 /* Resources */,
@@ -123,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB6FC46B24B802BB0055EEF5 /* Build configuration list for PBXNativeTarget "GapoRoutesTests" */;
 			buildPhases = (
+				1A3A89C070AA34B63512393B /* [CP] Check Pods Manifest.lock */,
 				FB6FC45B24B802BB0055EEF5 /* Sources */,
 				FB6FC45C24B802BB0055EEF5 /* Frameworks */,
 				FB6FC45D24B802BB0055EEF5 /* Resources */,
@@ -194,6 +229,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A3A89C070AA34B63512393B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GapoRoutesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		329F46B19F1D9C9CA5A4BEF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GapoRoutes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB6FC44524B802B90055EEF5 /* Sources */ = {
@@ -360,6 +442,7 @@
 		};
 		FB6FC46924B802BB0055EEF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 983C987B368DBC9A624341AF /* Pods-GapoRoutes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -372,12 +455,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = peanut36k.io.GapoRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		FB6FC46A24B802BB0055EEF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1063AFE2D2B73529399B5B20 /* Pods-GapoRoutes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,12 +474,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = peanut36k.io.GapoRoutes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		FB6FC46C24B802BB0055EEF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 499D244A522CC52155F1FA26 /* Pods-GapoRoutesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -418,6 +503,7 @@
 		};
 		FB6FC46D24B802BB0055EEF5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72EA87A3ABB2093A79103425 /* Pods-GapoRoutesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
