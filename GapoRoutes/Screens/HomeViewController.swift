@@ -192,7 +192,7 @@ final class HomeViewController: UIViewController {
                                 self.addStartPointMarker(startPoint)
                                 self.addDestinationPointMarker(destinationPoint)
                             }
-                            self.mapView?.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 50.0))
+                            self.mapView?.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 30.0))
                             polyline.map = self.mapView
                         }
                     }
