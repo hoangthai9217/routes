@@ -11,7 +11,7 @@
 		68430154FC41B3C2CD424F2A /* Pods_GapoRoutes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C163E77B22188C1205E109 /* Pods_GapoRoutes.framework */; };
 		FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */; };
 		FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */; };
-		FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC45024B802B90055EEF5 /* ViewController.swift */; };
+		FB6FC45124B802B90055EEF5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC45024B802B90055EEF5 /* HomeViewController.swift */; };
 		FB6FC45424B802B90055EEF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45224B802B90055EEF5 /* Main.storyboard */; };
 		FB6FC45624B802BA0055EEF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45524B802BA0055EEF5 /* Assets.xcassets */; };
 		FB6FC45924B802BA0055EEF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		FB6FC44924B802B90055EEF5 /* GapoRoutes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GapoRoutes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FB6FC45024B802B90055EEF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB6FC45024B802B90055EEF5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FB6FC45324B802B90055EEF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB6FC45524B802BA0055EEF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB6FC45824B802BA0055EEF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -96,6 +96,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		FB6D5C3124B8A71C001FDEF2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FB6FC45024B802B90055EEF5 /* HomeViewController.swift */,
+				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		FB6FC44024B802B90055EEF5 = {
 			isa = PBXGroup;
 			children = (
@@ -119,17 +128,16 @@
 		FB6FC44B24B802B90055EEF5 /* GapoRoutes */ = {
 			isa = PBXGroup;
 			children = (
-				FBCB13D324B860BD00BB6004 /* Coordinators */,
-				FBCB13D024B85D9600BB6004 /* Models */,
 				FB6FC44C24B802B90055EEF5 /* AppDelegate.swift */,
 				FB6FC45524B802BA0055EEF5 /* Assets.xcassets */,
 				FB6FC46E24B804670055EEF5 /* Configurations */,
-				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
+				FBCB13D324B860BD00BB6004 /* Coordinators */,
 				FB6FC45A24B802BA0055EEF5 /* Info.plist */,
 				FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */,
 				FB6FC45224B802B90055EEF5 /* Main.storyboard */,
+				FBCB13D024B85D9600BB6004 /* Models */,
 				FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */,
-				FB6FC45024B802B90055EEF5 /* ViewController.swift */,
+				FB6D5C3124B8A71C001FDEF2 /* Screens */,
 			);
 			path = GapoRoutes;
 			sourceTree = "<group>";
@@ -354,7 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBCB13D224B85DA200BB6004 /* TravelMode.swift in Sources */,
-				FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */,
+				FB6FC45124B802B90055EEF5 /* HomeViewController.swift in Sources */,
 				FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */,
 				FBCB13CF24B82DA500BB6004 /* Coordinator.swift in Sources */,
 				FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */,

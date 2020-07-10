@@ -12,9 +12,7 @@ import UIKit
 enum StringConstants: String {
     case GoogleAPIKey = "AIzaSyD5kGt8erexBWZhCVkLHSjf7_lNufZzJKw"
     case GoogleDirectionAPIKey = "AIzaSyCYA9LKUpBhbxBwGEJw-m6Cum0zGGt4G_M"
-}
-
-extension StringConstants {
+    
     var stringValue: String {
         return self.rawValue
     }
@@ -32,5 +30,4 @@ enum Colors {
             return UIColor.systemBlue.withAlphaComponent(0.3)
         }
     }
-    
 }

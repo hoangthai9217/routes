@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  GapoRoutes
 //
 //  Created by peanut36k on 10/7/20.
@@ -13,10 +13,10 @@ import RxSwift
 import RxCocoa
 import RxRelay
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // IBOutlets
-    @IBOutlet private weak var mapContainerView: UIView!
+    @IBOutlet private weak var mapView: GMSMapView!
     @IBOutlet private weak var drivingButton: UIButton!
     @IBOutlet private weak var transitButton: UIButton!
     @IBOutlet private weak var walkingButton: UIButton!
@@ -27,9 +27,10 @@ final class ViewController: UIViewController {
     
     private var viewModel: HomeViewModel!
     private let disposeBag = DisposeBag()
-    private var mapView: GMSMapView?
     private let startMarker = GMSMarker()
     private let destinationMarker = GMSMarker()
+    
+    private let locationManager = CLLocationManager()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -130,28 +131,31 @@ final class ViewController: UIViewController {
     
     private func configureMap() {
         let camera = GMSCameraPosition.camera(withLatitude: 21.0278, longitude: 105.8342, zoom: 10)
-        mapView = GMSMapView.map(withFrame: mapContainerView.frame, camera: camera)
-        guard let mapView = mapView else { return }
-        mapContainerView.addSubview(mapView)
+        mapView.camera = camera
+        mapView.isMyLocationEnabled = true
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
     // MARK: - IBActions
     @IBAction private func selectStartingPoint() {
         searchAPlace()
-            .asObservable()
             .bind(to: viewModel.startingPoint)
             .disposed(by: disposeBag)
     }
     
     @IBAction private func selectDestinationPoint() {
         searchAPlace()
-            .asObservable()
             .bind(to: viewModel.destinationPoint)
             .disposed(by: disposeBag)
     }
     
     @IBAction private func reversePoints() {
         viewModel.reversePoint.accept(())
+    }
+    
+    @IBAction private func checkCurrentLocation() {
+        locationManager.startUpdatingLocation()
     }
     
     private var searchPlaceCoordinator: SearchPlaceCoordinator?
@@ -201,7 +205,7 @@ final class ViewController: UIViewController {
     }
     
     private func showNoRouteAlert() {
-        showPopUp(title: "Error", message: "Found no routes!")
+        showPopUp(title: "Error", message: "No routes found!")
     }
     
     private func showPopUp(title: String?, message: String?) {
@@ -212,4 +216,13 @@ final class ViewController: UIViewController {
         
     }
     
+}
+
+extension HomeViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let coordinate = locations.last?.coordinate else { return }
+        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17.0)
+        mapView.animate(to: camera)
+        locationManager.stopUpdatingLocation()
+    }
 }

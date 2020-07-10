@@ -7,20 +7,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GapoRoutes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="GapoRoutes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U80-Bc-JLS" userLabel="MapContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="680"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5Z-Ho-ouX" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="656"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gX-TX-8Kt" userLabel="BottomController">
-                                <rect key="frame" x="0.0" y="680" width="414" height="182"/>
+                                <rect key="frame" x="0.0" y="656" width="414" height="206"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x8-5Z-dhD">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -36,18 +36,18 @@
                                                 <rect key="frame" x="16" y="71" width="20" height="39"/>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose starting point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-DR-lTl">
-                                                <rect key="frame" x="52" y="18.5" width="306" height="34"/>
+                                                <rect key="frame" x="52" y="18.5" width="282" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-Aq-zSK" userLabel="Choose starting point">
-                                                <rect key="frame" x="52" y="18.5" width="306" height="34"/>
+                                                <rect key="frame" x="52" y="18.5" width="282" height="34"/>
                                                 <connections>
                                                     <action selector="selectStartingPoint" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPY-w6-lE0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-Mn-8QH" userLabel="Reverse points">
-                                                <rect key="frame" x="358" y="35" width="56" height="56"/>
+                                                <rect key="frame" x="334" y="23" width="80" height="80"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                                 <state key="normal" image="ic_qu_direction_reverse"/>
                                                 <connections>
@@ -55,12 +55,12 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose destination..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt4-nw-Xvb">
-                                                <rect key="frame" x="52" y="73.5" width="306" height="34"/>
+                                                <rect key="frame" x="52" y="73.5" width="282" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQW-2q-hJl" userLabel="Choose destination point">
-                                                <rect key="frame" x="52" y="73.5" width="306" height="34"/>
+                                                <rect key="frame" x="52" y="73.5" width="282" height="34"/>
                                                 <connections>
                                                     <action selector="selectDestinationPoint" destination="BYZ-38-t0r" eventType="touchUpInside" id="JiC-sg-N4f"/>
                                                 </connections>
@@ -94,24 +94,24 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AnY-po-Qdc">
-                                        <rect key="frame" x="0.0" y="126" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="126" width="414" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-uU-o9q" userLabel="drive">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="80"/>
                                                 <color key="tintColor" red="0.20784313730000001" green="0.45882352939999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
                                                 <state key="normal" image="ic_qu_drive"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-RU-rO3" userLabel="transit">
-                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="56"/>
+                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="80"/>
                                                 <state key="normal" image="ic_qu_directions_bus"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXn-s0-PX3" userLabel="walk">
-                                                <rect key="frame" x="207" y="0.0" width="103.5" height="56"/>
+                                                <rect key="frame" x="207" y="0.0" width="103.5" height="80"/>
                                                 <state key="normal" image="ic_qu_walking"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-8g-pep" userLabel="bicycling">
-                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="56"/>
+                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="80"/>
                                                 <state key="normal" image="ic_qu_biking"/>
                                             </button>
                                         </subviews>
@@ -129,20 +129,23 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwk-7c-aeb">
-                                <rect key="frame" x="352" y="618" width="46" height="46"/>
+                                <rect key="frame" x="306" y="548" width="92" height="92"/>
                                 <state key="normal" image="button_my_location"/>
+                                <connections>
+                                    <action selector="checkCurrentLocation" destination="BYZ-38-t0r" eventType="touchUpInside" id="zM6-bm-Kps"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="E5Z-Ho-ouX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4OX-4O-MoS"/>
                             <constraint firstItem="4gX-TX-8Kt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CXm-55-vHT"/>
-                            <constraint firstItem="U80-Bc-JLS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Udc-1A-onL"/>
-                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="top" secondItem="U80-Bc-JLS" secondAttribute="bottom" id="cTO-81-i0r"/>
-                            <constraint firstAttribute="trailing" secondItem="U80-Bc-JLS" secondAttribute="trailing" id="eyV-I2-HBD"/>
-                            <constraint firstItem="U80-Bc-JLS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="f9W-aU-QEB"/>
+                            <constraint firstItem="E5Z-Ho-ouX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N6i-Kz-FDn"/>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="top" secondItem="E5Z-Ho-ouX" secondAttribute="bottom" id="ODl-Ie-qHV"/>
                             <constraint firstItem="4gX-TX-8Kt" firstAttribute="top" secondItem="Jwk-7c-aeb" secondAttribute="bottom" constant="16" id="hc2-Ed-xis"/>
                             <constraint firstItem="4gX-TX-8Kt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i5V-E0-PbY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jwk-7c-aeb" secondAttribute="trailing" constant="16" id="o7T-2J-Z33"/>
+                            <constraint firstItem="E5Z-Ho-ouX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="wg9-pO-7qp"/>
                             <constraint firstItem="4gX-TX-8Kt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zwU-g5-TRz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -151,7 +154,7 @@
                         <outlet property="bicyclingButton" destination="yFz-8g-pep" id="N60-sl-Luv"/>
                         <outlet property="destinationPointTextField" destination="yt4-nw-Xvb" id="24W-5m-jQC"/>
                         <outlet property="drivingButton" destination="1w5-uU-o9q" id="osf-gm-Ji3"/>
-                        <outlet property="mapContainerView" destination="U80-Bc-JLS" id="NUB-7U-JIn"/>
+                        <outlet property="mapView" destination="E5Z-Ho-ouX" id="FvK-vW-07g"/>
                         <outlet property="startPointTextField" destination="aFy-DR-lTl" id="zT8-XT-d8y"/>
                         <outlet property="transitButton" destination="6F0-RU-rO3" id="DWw-R6-4vs"/>
                         <outlet property="walkingButton" destination="tXn-s0-PX3" id="uHR-46-Obj"/>
