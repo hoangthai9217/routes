@@ -19,26 +19,32 @@ final class HomeViewModel: BaseViewModel {
     
     let mode = BehaviorRelay<TravelMode>(value: .driving)
     
-//    let selectStartingPoint = PublishRelay<Void>()
-//    let selectDestinationPoint = PublishRelay<Void>()
-    
     let startingPoint = BehaviorRelay<GMSPlace?>(value: nil)
     let destinationPoint = BehaviorRelay<GMSPlace?>(value: nil)
     var drawPolylineRoute: Observable<(from: CLLocationCoordinate2D, to: CLLocationCoordinate2D)> {
         let from = startingPoint.flatMap(Observable.from(optional: )).map({$0.coordinate})
         let to = destinationPoint.flatMap(Observable.from(optional: )).map({$0.coordinate})
         return Observable.combineLatest(from, to, resultSelector: { return (from: $0, to: $1) })
+            .debounce(DispatchTimeInterval.milliseconds(200), scheduler: MainScheduler.instance)
     }
     
-    //    let searchAPlace = PublishSubject<Void>()
+    let reversePoint = PublishRelay<Void>()
+    
+    override init() {
+        super.init()
+        bind()
+    }
     
     private func bind() {
-//        selectStartingPoint
-//            .asObservable()
-//            .subscribe(onNext: {
-//
-//            })
-//            .disposed(by: disposeBag)
+        reversePoint
+            .subscribe(onNext: { [weak self] in
+                let startingPointValue = self?.startingPoint.value
+                let destinationPointValue = self?.destinationPoint.value
+                self?.startingPoint.accept(destinationPointValue)
+                self?.destinationPoint.accept(startingPointValue)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
 }

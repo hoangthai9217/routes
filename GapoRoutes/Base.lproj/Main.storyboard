@@ -50,6 +50,9 @@
                                                 <rect key="frame" x="358" y="35" width="56" height="56"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                                 <state key="normal" image="ic_qu_direction_reverse"/>
+                                                <connections>
+                                                    <action selector="reversePoints" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q1b-5G-0rJ"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose destination..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt4-nw-Xvb">
                                                 <rect key="frame" x="52" y="73.5" width="306" height="34"/>

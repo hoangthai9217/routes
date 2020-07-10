@@ -81,6 +81,7 @@ final class ViewController: UIViewController {
             .drive(onNext: { [weak self] place in self?.addDestinationPointMarker(place)})
             .disposed(by: disposeBag)
         
+        
         viewModel.drawPolylineRoute
             .asDriver(onErrorDriveWith: Driver.empty())
             .drive(onNext: { [weak self] points in self?.drawPolylineRoute(from: points.from, to: points.to)})
@@ -149,6 +150,10 @@ final class ViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    @IBAction private func reversePoints() {
+        viewModel.reversePoint.accept(())
+    }
+    
     private var searchPlaceCoordinator: SearchPlaceCoordinator?
     private func searchAPlace() -> Observable<GMSPlace> {
         searchPlaceCoordinator = SearchPlaceCoordinator(context: self)
@@ -163,13 +168,13 @@ final class ViewController: UIViewController {
         let task = session.dataTask(with: url, completionHandler: { [weak self] (data, response, error) in
             guard let self = self else { return }
             if error != nil {
-                print(error!.localizedDescription)
+                self.showNoRouteAlert()
             } else {
                 do {
                     if let json: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] {
                         DispatchQueue.main.async {
                             guard let routes = json["routes"] as? NSArray, routes.count > 0 else {
-                                self.showPopUp(title: "Error", message: "Found no routes!")
+                                self.showNoRouteAlert()
                                 return
                             }
                             let routeOverviewPolyline: NSDictionary = (routes[0] as! NSDictionary).value(forKey: "overview_polyline") as! NSDictionary
@@ -188,11 +193,15 @@ final class ViewController: UIViewController {
                         }
                     }
                 } catch {
-                    print("error in JSONSerialization")
+                    self.showNoRouteAlert()
                 }
             }
         })
         task.resume()
+    }
+    
+    private func showNoRouteAlert() {
+        showPopUp(title: "Error", message: "Found no routes!")
     }
     
     private func showPopUp(title: String?, message: String?) {
