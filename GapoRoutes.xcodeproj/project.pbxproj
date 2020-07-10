@@ -18,6 +18,7 @@
 		FB6FC46424B802BB0055EEF5 /* GapoRoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46324B802BB0055EEF5 /* GapoRoutesTests.swift */; };
 		FB6FC47024B804790055EEF5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6FC46F24B804790055EEF5 /* Constants.swift */; };
 		FBCB13CD24B8277900BB6004 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */; };
+		FBCB13CF24B82DA500BB6004 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB13CE24B82DA500BB6004 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		FB6FC46524B802BB0055EEF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB6FC46F24B804790055EEF5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FBCB13CE24B82DA500BB6004 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				FB6FC44E24B802B90055EEF5 /* SceneDelegate.swift */,
 				FB6FC45024B802B90055EEF5 /* ViewController.swift */,
 				FBCB13CC24B8277900BB6004 /* HomeViewModel.swift */,
+				FBCB13CE24B82DA500BB6004 /* Coordinator.swift */,
 				FB6FC45224B802B90055EEF5 /* Main.storyboard */,
 				FB6FC45524B802BA0055EEF5 /* Assets.xcassets */,
 				FB6FC45724B802BA0055EEF5 /* LaunchScreen.storyboard */,
@@ -333,6 +336,7 @@
 			files = (
 				FB6FC45124B802B90055EEF5 /* ViewController.swift in Sources */,
 				FB6FC44D24B802B90055EEF5 /* AppDelegate.swift in Sources */,
+				FBCB13CF24B82DA500BB6004 /* Coordinator.swift in Sources */,
 				FB6FC44F24B802B90055EEF5 /* SceneDelegate.swift in Sources */,
 				FBCB13CD24B8277900BB6004 /* HomeViewModel.swift in Sources */,
 				FB6FC47024B804790055EEF5 /* Constants.swift in Sources */,
