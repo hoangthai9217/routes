@@ -10,7 +10,7 @@ import Foundation
 
 enum StringConstants: String {
     case GoogleAPIKey = "AIzaSyD5kGt8erexBWZhCVkLHSjf7_lNufZzJKw"
-    
+    case GoogleDirectionAPIKey = "AIzaSyCYA9LKUpBhbxBwGEJw-m6Cum0zGGt4G_M"
     
     
 }

@@ -40,7 +40,13 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-Mn-8QH">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQK-Aq-zSK" userLabel="Choose starting point">
+                                                <rect key="frame" x="52" y="18.5" width="306" height="34"/>
+                                                <connections>
+                                                    <action selector="selectStartingPoint" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPY-w6-lE0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-Mn-8QH" userLabel="Reverse points">
                                                 <rect key="frame" x="358" y="35" width="56" height="56"/>
                                                 <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                                 <state key="normal" image="ic_qu_direction_reverse"/>
@@ -50,6 +56,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQW-2q-hJl" userLabel="Choose destination point">
+                                                <rect key="frame" x="52" y="73.5" width="306" height="34"/>
+                                                <connections>
+                                                    <action selector="selectDestinationPoint" destination="BYZ-38-t0r" eventType="touchUpInside" id="JiC-sg-N4f"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -58,14 +70,22 @@
                                             <constraint firstItem="yt4-nw-Xvb" firstAttribute="centerY" secondItem="blb-Fx-gzA" secondAttribute="centerY" id="2GS-xA-dm8"/>
                                             <constraint firstItem="blb-Fx-gzA" firstAttribute="centerX" secondItem="6eT-79-TFw" secondAttribute="centerX" id="4N0-PF-njz"/>
                                             <constraint firstAttribute="trailing" secondItem="qOy-Mn-8QH" secondAttribute="trailing" id="5ui-hc-ydU"/>
+                                            <constraint firstItem="PQK-Aq-zSK" firstAttribute="trailing" secondItem="aFy-DR-lTl" secondAttribute="trailing" id="7Uz-lg-4qg"/>
                                             <constraint firstItem="aFy-DR-lTl" firstAttribute="leading" secondItem="6eT-79-TFw" secondAttribute="trailing" constant="16" id="9FN-6f-uLF"/>
                                             <constraint firstItem="6eT-79-TFw" firstAttribute="top" secondItem="7x8-5Z-dhD" secondAttribute="top" constant="16" id="F71-OK-wJA"/>
                                             <constraint firstItem="blb-Fx-gzA" firstAttribute="height" secondItem="6eT-79-TFw" secondAttribute="height" id="HIs-FB-8GL"/>
+                                            <constraint firstItem="PQK-Aq-zSK" firstAttribute="bottom" secondItem="aFy-DR-lTl" secondAttribute="bottom" id="Jsl-n9-r74"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="trailing" secondItem="dQW-2q-hJl" secondAttribute="trailing" id="PLK-vN-37x"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="bottom" secondItem="dQW-2q-hJl" secondAttribute="bottom" id="QsQ-l3-e2s"/>
                                             <constraint firstItem="blb-Fx-gzA" firstAttribute="width" secondItem="6eT-79-TFw" secondAttribute="width" id="Qvc-VP-T54"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="top" secondItem="dQW-2q-hJl" secondAttribute="top" id="U1t-f2-HTT"/>
                                             <constraint firstItem="qOy-Mn-8QH" firstAttribute="centerY" secondItem="7x8-5Z-dhD" secondAttribute="centerY" id="Vqn-eC-0Zv"/>
                                             <constraint firstItem="yt4-nw-Xvb" firstAttribute="leading" secondItem="aFy-DR-lTl" secondAttribute="leading" id="Ya8-mf-WAO"/>
+                                            <constraint firstItem="PQK-Aq-zSK" firstAttribute="leading" secondItem="aFy-DR-lTl" secondAttribute="leading" id="dko-jG-EOW"/>
                                             <constraint firstItem="qOy-Mn-8QH" firstAttribute="leading" secondItem="aFy-DR-lTl" secondAttribute="trailing" id="eLZ-Ke-G8x"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="leading" secondItem="dQW-2q-hJl" secondAttribute="leading" id="eRl-oC-LZN"/>
                                             <constraint firstItem="6eT-79-TFw" firstAttribute="leading" secondItem="7x8-5Z-dhD" secondAttribute="leading" constant="16" id="ixh-IP-xyY"/>
+                                            <constraint firstItem="PQK-Aq-zSK" firstAttribute="top" secondItem="aFy-DR-lTl" secondAttribute="top" id="qy8-ST-5x0"/>
                                             <constraint firstAttribute="bottom" secondItem="blb-Fx-gzA" secondAttribute="bottom" constant="16" id="xGb-cC-H2c"/>
                                             <constraint firstItem="aFy-DR-lTl" firstAttribute="centerY" secondItem="6eT-79-TFw" secondAttribute="centerY" id="yxu-VP-j7v"/>
                                         </constraints>
@@ -73,20 +93,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AnY-po-Qdc">
                                         <rect key="frame" x="0.0" y="126" width="414" height="56"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-uU-o9q">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-uU-o9q" userLabel="drive">
                                                 <rect key="frame" x="0.0" y="0.0" width="103.5" height="56"/>
+                                                <color key="tintColor" red="0.20784313730000001" green="0.45882352939999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
                                                 <state key="normal" image="ic_qu_drive"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-RU-rO3">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-RU-rO3" userLabel="transit">
                                                 <rect key="frame" x="103.5" y="0.0" width="103.5" height="56"/>
                                                 <state key="normal" image="ic_qu_directions_bus"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXn-s0-PX3">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXn-s0-PX3" userLabel="walk">
                                                 <rect key="frame" x="207" y="0.0" width="103.5" height="56"/>
                                                 <state key="normal" image="ic_qu_walking"/>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-8g-pep">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-8g-pep" userLabel="bicycling">
                                                 <rect key="frame" x="310.5" y="0.0" width="103.5" height="56"/>
                                                 <state key="normal" image="ic_qu_biking"/>
                                             </button>
