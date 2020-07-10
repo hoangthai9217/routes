@@ -2,7 +2,7 @@
 ## Description
 
 This is an open-source project sample that are show how to use some of 
-features of [Google Maps SDK for iOS][sdk], [Google Places API][sdk] and [Direction APIs][sdk].
+features of Google Maps SDK for iOS, Google Places API and Direction APIs.
 
 
 ## Requirements
