@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,136 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GapoRoutes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U80-Bc-JLS" userLabel="MapContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="680"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gX-TX-8Kt" userLabel="BottomController">
+                                <rect key="frame" x="0.0" y="680" width="414" height="182"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x8-5Z-dhD">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_pin_blue" translatesAutoresizingMaskIntoConstraints="NO" id="6eT-79-TFw">
+                                                <rect key="frame" x="16" y="16" width="20" height="39"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="39" id="IU3-ba-8Nf"/>
+                                                    <constraint firstAttribute="width" constant="20" id="oSF-ub-RQm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_pin" translatesAutoresizingMaskIntoConstraints="NO" id="blb-Fx-gzA">
+                                                <rect key="frame" x="16" y="71" width="20" height="39"/>
+                                            </imageView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose starting point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFy-DR-lTl">
+                                                <rect key="frame" x="52" y="18.5" width="306" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOy-Mn-8QH">
+                                                <rect key="frame" x="358" y="35" width="56" height="56"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                <state key="normal" image="ic_qu_direction_reverse"/>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose destination..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yt4-nw-Xvb">
+                                                <rect key="frame" x="52" y="73.5" width="306" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="blb-Fx-gzA" firstAttribute="top" secondItem="6eT-79-TFw" secondAttribute="bottom" constant="16" id="1M4-x1-Urs"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="trailing" secondItem="aFy-DR-lTl" secondAttribute="trailing" id="2GL-uh-8m7"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="centerY" secondItem="blb-Fx-gzA" secondAttribute="centerY" id="2GS-xA-dm8"/>
+                                            <constraint firstItem="blb-Fx-gzA" firstAttribute="centerX" secondItem="6eT-79-TFw" secondAttribute="centerX" id="4N0-PF-njz"/>
+                                            <constraint firstAttribute="trailing" secondItem="qOy-Mn-8QH" secondAttribute="trailing" id="5ui-hc-ydU"/>
+                                            <constraint firstItem="aFy-DR-lTl" firstAttribute="leading" secondItem="6eT-79-TFw" secondAttribute="trailing" constant="16" id="9FN-6f-uLF"/>
+                                            <constraint firstItem="6eT-79-TFw" firstAttribute="top" secondItem="7x8-5Z-dhD" secondAttribute="top" constant="16" id="F71-OK-wJA"/>
+                                            <constraint firstItem="blb-Fx-gzA" firstAttribute="height" secondItem="6eT-79-TFw" secondAttribute="height" id="HIs-FB-8GL"/>
+                                            <constraint firstItem="blb-Fx-gzA" firstAttribute="width" secondItem="6eT-79-TFw" secondAttribute="width" id="Qvc-VP-T54"/>
+                                            <constraint firstItem="qOy-Mn-8QH" firstAttribute="centerY" secondItem="7x8-5Z-dhD" secondAttribute="centerY" id="Vqn-eC-0Zv"/>
+                                            <constraint firstItem="yt4-nw-Xvb" firstAttribute="leading" secondItem="aFy-DR-lTl" secondAttribute="leading" id="Ya8-mf-WAO"/>
+                                            <constraint firstItem="qOy-Mn-8QH" firstAttribute="leading" secondItem="aFy-DR-lTl" secondAttribute="trailing" id="eLZ-Ke-G8x"/>
+                                            <constraint firstItem="6eT-79-TFw" firstAttribute="leading" secondItem="7x8-5Z-dhD" secondAttribute="leading" constant="16" id="ixh-IP-xyY"/>
+                                            <constraint firstAttribute="bottom" secondItem="blb-Fx-gzA" secondAttribute="bottom" constant="16" id="xGb-cC-H2c"/>
+                                            <constraint firstItem="aFy-DR-lTl" firstAttribute="centerY" secondItem="6eT-79-TFw" secondAttribute="centerY" id="yxu-VP-j7v"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AnY-po-Qdc">
+                                        <rect key="frame" x="0.0" y="126" width="414" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w5-uU-o9q">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="56"/>
+                                                <inset key="contentEdgeInsets" minX="0.0" minY="16" maxX="0.0" maxY="16"/>
+                                                <state key="normal" image="ic_qu_drive"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F0-RU-rO3">
+                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="56"/>
+                                                <state key="normal" image="ic_qu_directions_bus"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXn-s0-PX3">
+                                                <rect key="frame" x="207" y="0.0" width="103.5" height="56"/>
+                                                <state key="normal" image="ic_qu_walking"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFz-8g-pep">
+                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="56"/>
+                                                <state key="normal" image="ic_qu_biking"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="AnY-po-Qdc" firstAttribute="top" secondItem="7x8-5Z-dhD" secondAttribute="bottom" id="BkX-JW-kHQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7x8-5Z-dhD" secondAttribute="trailing" id="CIV-aQ-tjf"/>
+                                    <constraint firstAttribute="trailing" secondItem="AnY-po-Qdc" secondAttribute="trailing" id="ISx-lc-CLC"/>
+                                    <constraint firstItem="7x8-5Z-dhD" firstAttribute="leading" secondItem="4gX-TX-8Kt" secondAttribute="leading" id="RSX-Tj-hte"/>
+                                    <constraint firstAttribute="bottom" secondItem="AnY-po-Qdc" secondAttribute="bottom" id="hG3-GF-6MF"/>
+                                    <constraint firstItem="AnY-po-Qdc" firstAttribute="leading" secondItem="4gX-TX-8Kt" secondAttribute="leading" id="qxf-Ix-MnA"/>
+                                    <constraint firstItem="7x8-5Z-dhD" firstAttribute="top" secondItem="4gX-TX-8Kt" secondAttribute="top" id="uIT-rd-EN2"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwk-7c-aeb">
+                                <rect key="frame" x="352" y="618" width="46" height="46"/>
+                                <state key="normal" image="button_my_location"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CXm-55-vHT"/>
+                            <constraint firstItem="U80-Bc-JLS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Udc-1A-onL"/>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="top" secondItem="U80-Bc-JLS" secondAttribute="bottom" id="cTO-81-i0r"/>
+                            <constraint firstAttribute="trailing" secondItem="U80-Bc-JLS" secondAttribute="trailing" id="eyV-I2-HBD"/>
+                            <constraint firstItem="U80-Bc-JLS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="f9W-aU-QEB"/>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="top" secondItem="Jwk-7c-aeb" secondAttribute="bottom" constant="16" id="hc2-Ed-xis"/>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i5V-E0-PbY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jwk-7c-aeb" secondAttribute="trailing" constant="16" id="o7T-2J-Z33"/>
+                            <constraint firstItem="4gX-TX-8Kt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="zwU-g5-TRz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapContainerView" destination="U80-Bc-JLS" id="NUB-7U-JIn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="button_my_location" width="46" height="46"/>
+        <image name="ic_qu_biking" width="24" height="24"/>
+        <image name="ic_qu_direction_reverse" width="24" height="24"/>
+        <image name="ic_qu_directions_bus" width="24" height="24"/>
+        <image name="ic_qu_drive" width="24" height="24"/>
+        <image name="ic_qu_walking" width="24" height="24"/>
+        <image name="location_pin" width="40" height="40"/>
+        <image name="location_pin_blue" width="40" height="40"/>
+    </resources>
 </document>

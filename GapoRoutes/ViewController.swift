@@ -9,20 +9,22 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
-
+final class ViewController: UIViewController {
+    
+    @IBOutlet private weak var mapContainerView: UIView!
+    
+    private var mapView: GMSMapView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
     }
     
     private func configureMap() {
-        // Do any additional setup after loading the view.
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: -33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
-        self.view.addSubview(mapView)
+        mapView = GMSMapView.map(withFrame: mapContainerView.frame, camera: camera)
+        guard let mapView = mapView else { return }
+        mapContainerView.addSubview(mapView)
 
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
